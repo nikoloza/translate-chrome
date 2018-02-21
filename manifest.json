@@ -1,0 +1,37 @@
+{
+  "name": "Translate Georgian",
+  "description": "This is unofficial Chrome Extension for translate.ge.",
+  "version": "1.0.1",
+  "manifest_version": 2,
+  "icons": {
+    "128": "assets/icon_128.png"
+  },
+  "browser_action": {    
+    "default_icon": "assets/icon_128.png",
+    "default_title": "Click to translate"
+  },
+  "background": {
+    "scripts": [ "app/background.js" ]
+  },
+  "permissions": [
+    "contextMenus"
+  ],
+  "commands": {
+    "toggleDialog": {
+      "suggested_key": {
+        "default": "Ctrl+E",
+        "mac": "Command+E"
+      },
+      "description": "Toggle the popup window"
+    }
+  },
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "css": ["app/style.css"],
+    "js": ["app/dom.js"]
+  }],
+  "web_accessible_resources": [
+    "app/*",
+    "assets/*"
+  ]
+}
