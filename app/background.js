@@ -23,7 +23,6 @@ chrome.browserAction.onClicked.addListener(tab =>
 
 // Talk to the DOM
 function sendMessage (selectionText, action = 'openDialog') {
-  console.log(action)
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     chrome.tabs.sendMessage(tabs[0].id, {
       action: action,
