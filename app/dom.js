@@ -151,7 +151,7 @@ function updateFooter (word) {
 
 // API
 function fetchWord (word = 'apple') {
-  return fetch(`${API}/${word}`)
+  return fetch(`${API}/${word && word.toLocaleLowerCase()}`)
     .then(body => body.json())
 }
 
